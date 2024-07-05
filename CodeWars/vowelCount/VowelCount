@@ -1,0 +1,21 @@
+function getCount(str) {
+  let count = 0;
+
+  str.split("").forEach(let => {
+    if (checkVowel(let)) {
+        count ++;
+    }
+  });
+
+  function checkVowel (letter) {
+    if (letter === "a" || letter === "o" || letter === "u"  ||  letter === "e"  ||  letter === "i" ) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
+  return count;
+}
+
+console.log(getCount("hello"))
