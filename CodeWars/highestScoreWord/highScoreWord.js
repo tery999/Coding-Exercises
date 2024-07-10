@@ -22,7 +22,7 @@ function high(x){
 
 console.log( high('climbing volcano'));
 
-//another way
+//another way, that doesnt seem to be working
 
 // function highTwo(x){
 //     let wordsArr = x.split(" ");
