@@ -88,9 +88,10 @@ class Warrior {
             let totalExperience = this.#experience + expToAdd;
             if (totalExperience >= 10000) {
                 this.#experience = 10000;
-                return;
+            } else {
+                this.#experience += expToAdd;
             }
-            this.#experience += expToAdd;
+           
             let newLevel = Math.floor(totalExperience / 100);
             if (newLevel >= 100) {
                 this.#level = 100;
