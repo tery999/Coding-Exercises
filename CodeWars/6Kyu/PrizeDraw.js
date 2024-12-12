@@ -1,12 +1,35 @@
 function rank(st, we, n) {
+
     let namePrice = {};
     let names = st.split(",");
+
+    if (names.length === 0 || st.length === 0) {
+        return  "No participants";
+    }
+
+    if ( n > names.length) {
+       return "Not enough participants";
+    }
 
     names.forEach((el,i) => {
         namePrice[el] = findTotalPoints(el, we[i]) ;
     });
-    return namePrice;
 
+    let namePriceArr = Object.entries(namePrice);
+    let namePriceSorted = namePriceArr.sort( (a,b) => {
+        if ( a[1] > b[1]) {
+            return -1
+        } else if ( a[1] < b[1]) {
+            return 1;
+        } else {
+            if (a[0] > b[0]) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+    })
+    return namePriceSorted[n-1][0];
 
     function findTotalPoints(name, weight) {
         let totalPointsCur = 0;
@@ -18,4 +41,4 @@ function rank(st, we, n) {
     }
 }
 
-console.log ( rank ( "COLIN,AMANDBA,AMANDAB,CAROL,PauL,JOSEPH", [1, 4, 4, 5, 2, 1], 4));
+console.log ( rank ("", [4, 2, 1, 4, 3, 1, 2], 6));
